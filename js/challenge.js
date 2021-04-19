@@ -7,12 +7,12 @@ let nIntervID = setInterval(function(){
 //pause.add... uses nIntervID to stop the counter
 let pause = document.getElementById('pause')
 pause.addEventListener('click', function(){
-  //if the counter is running
-  clearInterval(nIntervID)
-  //and change the button to 'resume'
-  //else if the counter isn't running
-  //start the counter
-  //change the button to 'pause'
+  if (pause.innerText === "pause"){
+    clearInterval(nIntervID)
+    pause.innerText = 'resume'
+  }else{
+    pause.innerText = 'pause'
+  }
 })
 
 let minus = document.getElementById('minus')
@@ -25,17 +25,15 @@ plus.addEventListener('click', function(){
   counter.innerHTML = parseInt(counter.innerHTML) + 1
 })
 
-
-
-
-
 let heart = document.getElementById('heart');
-let class = document.getElementsByClassName('likes');
-
-function addHeart(){
-  // 5 has been liked 2 times
-  // 9 has been liked 1 time
-}
+heart.addEventListener('click', function(){
+  let likes = document.querySelector('.likes');
+  let count = parseInt(counter.innerText)
+  let li = document.createElement('li')
+  li.innerText = `${count} has been liked 1 time.`
+  likes.appendChild(li)
+})
+ 
 
 let list = document.getElementById('list')
 
